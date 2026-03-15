@@ -1,1670 +1,431 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZN — Премиальный уход за волосами</title>
-  <meta name="description" content="ZN — магазин премиального ухода за волосами собственного производства. Профессиональный результат, эстетика ухода и формулы высокого качества." />
-  <style>
-    :root {
-      --milk: #f6f3ee;
-      --warm-white: #fffcf7;
-      --beige: #e8e0d4;
-      --champagne: #f1eadf;
-      --sand: #d5c6b3;
-      --gold: #9f845f;
-      --gold-soft: rgba(159, 132, 95, 0.12);
-      --graphite: #1f1f1f;
-      --graphite-soft: #6b6b6b;
-      --line: rgba(31, 31, 31, 0.08);
-      --shadow: 0 20px 60px rgba(31, 31, 31, 0.08);
-      --shadow-soft: 0 10px 30px rgba(31, 31, 31, 0.05);
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --container: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Inter, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top center, rgba(159, 132, 95, 0.08), transparent 18%),
-        linear-gradient(180deg, #fffdf9 0%, #f8f5f0 48%, #fffdf9 100%);
-      color: var(--graphite);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-      border: none;
-      background: none;
-      cursor: pointer;
-    }
-
-    .container {
-      width: min(var(--container), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 128px 0;
-      position: relative;
-    }
-
-    .section-header {
-      max-width: 760px;
-      margin: 0 auto 54px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.76rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 34px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold));
-    }
-
-    h1, h2, h3, h4 {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Inter, Arial, sans-serif;
-      font-weight: 600;
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-    }
-
-    h1 {
-      font-size: clamp(3.5rem, 8vw, 6.4rem);
-      max-width: 860px;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: clamp(2.6rem, 5vw, 4.4rem);
-      margin-bottom: 18px;
-    }
-
-    h3 {
-      font-size: 1.6rem;
-      margin-bottom: 12px;
-    }
-
-    p.section-text,
-    .section-header p {
-      font-size: 1.06rem;
-      color: var(--graphite-soft);
-      max-width: 680px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px 28px;
-      border-radius: 999px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #b99563, #ceb085);
-      color: #fffdf9;
-      box-shadow: 0 14px 28px rgba(185, 149, 99, 0.22);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 34px rgba(185, 149, 99, 0.28);
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(45, 42, 40, 0.12);
-      background: rgba(255, 253, 249, 0.78);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      border-color: rgba(185, 149, 99, 0.4);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 14px 0;
-      backdrop-filter: blur(20px);
-      background: rgba(255, 252, 247, 0.72);
-      border-bottom: 1px solid rgba(31, 31, 31, 0.06);
-    }
-
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 0 4px;
-      min-height: 56px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid rgba(31,31,31,0.06);
-      box-shadow: var(--shadow-soft);
-      font-size: 0.98rem;
-      letter-spacing: 0.14em;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .nav-links a {
-      color: var(--graphite-soft);
-      font-size: 0.96rem;
-      transition: color 0.25s ease;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 1px;
-      transform: scaleX(0);
-      transform-origin: left;
-      background: linear-gradient(90deg, var(--gold), transparent);
-      transition: transform 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--graphite);
-    }
-
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      border: 1px solid rgba(45, 42, 40, 0.08);
-      background: rgba(255, 253, 249, 0.8);
-      backdrop-filter: blur(10px);
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 5px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .menu-toggle:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-soft);
-      border-color: rgba(185,149,99,0.22);
-    }
-
-    .menu-toggle span {
-      width: 18px;
-      height: 1.5px;
-      border-radius: 999px;
-      background: var(--graphite);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-      transform: translateY(6.5px) rotate(45deg);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-      transform: translateY(-6.5px) rotate(-45deg);
-    }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 84px;
-      left: 12px;
-      right: 12px;
-      z-index: 999;
-      padding: 14px;
-      border-radius: 24px;
-      background: rgba(255, 252, 247, 0.96);
-      border: 1px solid rgba(45, 42, 40, 0.06);
-      box-shadow: 0 24px 44px rgba(70, 52, 31, 0.12);
-      backdrop-filter: blur(16px);
-    }
-
-    .mobile-menu.open {
-      display: grid;
-      gap: 10px;
-      animation: fadeSlide 0.28s ease;
-    }
-
-    .mobile-menu a {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.65);
-      color: var(--graphite);
-      border: 1px solid rgba(185,149,99,0.08);
-      transition: background 0.25s ease, transform 0.25s ease;
-    }
-
-    .mobile-menu a:hover {
-      background: rgba(185,149,99,0.08);
-      transform: translateX(2px);
-    }
-
-    @keyframes fadeSlide {
-      from {
-        opacity: 0;
-        transform: translateY(-8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero {
-      min-height: calc(100vh - 88px);
-      display: grid;
-      align-items: center;
-      padding: 48px 0 56px;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      align-items: center;
-      text-align: center;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .hero-copy p {
-      font-size: 1.16rem;
-      color: var(--graphite-soft);
-      max-width: 700px;
-      margin-bottom: 32px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 28px;
-      justify-content: center;
-    }
-
-    .hero-note {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      color: var(--graphite-soft);
-      font-size: 0.94rem;
-      justify-content: center;
-    }
-
-    .hero-note span {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .hero-note span::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), #e7d0a4);
-      box-shadow: 0 0 0 5px rgba(185, 149, 99, 0.08);
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 520px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(0.2px);
-    }
-
-    .orb-1 {
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.92), rgba(241,234,223,0.7), rgba(159,132,95,0.1));
-      top: 20px;
-      right: 50%;
-      transform: translateX(50%);
-      box-shadow: 0 40px 90px rgba(31, 31, 31, 0.06);
-    }
-
-    .orb-2 {
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(255,255,255,0.75), rgba(213,198,179,0.24));
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0.9;
-    }
-
-    .hero-card {
-      position: relative;
-      width: min(760px, 100%);
-      padding: 30px;
-      border-radius: 38px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(249,246,240,0.72));
-      border: 1px solid rgba(255,255,255,0.8);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 32px 80px rgba(31, 31, 31, 0.08);
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(160deg, rgba(255,255,255,0.55), transparent 36%, rgba(185,149,99,0.08));
-      pointer-events: none;
-    }
-
-    .hero-bottles {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      align-items: end;
-      min-height: 430px;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .bottle {
-      position: relative;
-      border-radius: 999px 999px 28px 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(240,231,219,0.96) 50%, rgba(224,208,185,0.92));
-      border: 1px solid rgba(185,149,99,0.16);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 16px 28px rgba(94, 76, 56, 0.12);
-      overflow: hidden;
-    }
-
-    .bottle::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(255,255,255,0.7), transparent 35%, rgba(185,149,99,0.06));
-    }
-
-    .bottle::after {
-      content: "ZN";
-      position: absolute;
-      top: 28%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(1.3rem, 2vw, 1.8rem);
-      letter-spacing: 0.18em;
-      color: rgba(45, 42, 40, 0.76);
-    }
-
-    .bottle-cap {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -10%);
-      width: 46%;
-      height: 12%;
-      border-radius: 0 0 18px 18px;
-      background: linear-gradient(180deg, #c7a06f, #a67e52);
-      box-shadow: inset 0 -4px 8px rgba(76, 57, 33, 0.15);
-    }
-
-    .bottle-label {
-      position: absolute;
-      bottom: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 76%;
-      padding: 14px 12px;
-      border-radius: 20px;
-      background: rgba(255, 251, 245, 0.72);
-      border: 1px solid rgba(185,149,99,0.12);
-      text-align: center;
-      font-size: 0.84rem;
-      color: var(--graphite-soft);
-      backdrop-filter: blur(8px);
-    }
-
-    .bottle-tall {
-      height: 390px;
-    }
-
-    .bottle-mid {
-      height: 340px;
-      transform: translateY(24px);
-    }
-
-    .bottle-short {
-      height: 310px;
-      transform: translateY(44px);
-    }
-
-    .floating-badge {
-      position: absolute;
-      right: 24px;
-      bottom: 24px;
-      padding: 16px 18px;
-      border-radius: 20px;
-      background: rgba(255,253,249,0.82);
-      border: 1px solid rgba(31,31,31,0.06);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(14px);
-      max-width: 220px;
-      text-align: left;
-    }
-
-    .floating-badge strong {
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .about-card,
-    .about-panel,
-    .benefit-card,
-    .product-card,
-    .review-card,
-    .faq-item,
-    .contact-card {
-      background: rgba(255, 252, 247, 0.74);
-      border: 1px solid rgba(31, 31, 31, 0.06);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(12px);
-    }
-
-    .about-card {
-      padding: 36px;
-    }
-
-    .about-card p + p {
-      margin-top: 16px;
-    }
-
-    .about-points {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    .about-point {
-      padding: 18px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(239,228,210,0.36));
-      border: 1px solid rgba(185,149,99,0.12);
-    }
-
-    .about-point strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1rem;
-    }
-
-    .about-panel {
-      padding: 30px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100%;
-    }
-
-    .about-panel::before {
-      content: "";
-      position: absolute;
-      top: -80px;
-      right: -50px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(185,149,99,0.18), transparent 68%);
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .metric {
-      padding: 22px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(45, 42, 40, 0.06);
-    }
-
-    .metric strong {
-      display: block;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2.1rem;
-      margin-bottom: 4px;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .product-card {
-      padding: 24px;
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 38px rgba(31, 31, 31, 0.08);
-      border-color: rgba(159,132,95,0.18);
-    }
-
-    .product-visual {
-      height: 220px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(241,234,223,0.72));
-      border: 1px solid rgba(159,132,95,0.08);
-      margin-bottom: 22px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .product-visual::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(185,149,99,0.16), transparent 70%);
-      top: 18px;
-      right: 10px;
-    }
-
-    .mini-pack {
-      position: relative;
-      width: 110px;
-      height: 170px;
-      border-radius: 999px 999px 22px 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(234,224,212,0.98), rgba(213,190,162,0.9));
-      border: 1px solid rgba(185,149,99,0.14);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 14px 24px rgba(85, 63, 39, 0.1);
-    }
-
-    .mini-pack::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -8%);
-      width: 48px;
-      height: 20px;
-      border-radius: 0 0 14px 14px;
-      background: linear-gradient(180deg, #c6a06f, #a57d4f);
-    }
-
-    .mini-pack::after {
-      content: "ZN";
-      position: absolute;
-      top: 48px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: "Cormorant Garamond", serif;
-      letter-spacing: 0.16em;
-      color: rgba(45, 42, 40, 0.76);
-      font-size: 1.1rem;
-    }
-
-    .mini-pack.mask {
-      width: 145px;
-      height: 120px;
-      border-radius: 30px;
-    }
-
-    .mini-pack.mask::before {
-      width: 72px;
-      height: 18px;
-      border-radius: 18px 18px 10px 10px;
-      transform: translate(-50%, -28%);
-    }
-
-    .mini-pack.mask::after {
-      top: 42px;
-    }
-
-    .product-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(185,149,99,0.1);
-      color: var(--gold);
-      font-size: 0.82rem;
-      margin-bottom: 14px;
-    }
-
-    .product-title {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    .product-description {
-      color: var(--graphite-soft);
-      font-size: 0.98rem;
-      margin-bottom: 18px;
-      min-height: 72px;
-    }
-
-    .product-specs {
-      display: grid;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .spec {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--graphite-soft);
-      font-size: 0.95rem;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(45, 42, 40, 0.06);
-    }
-
-    .spec strong {
-      color: var(--graphite);
-      font-weight: 600;
-    }
-
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-top: auto;
-      padding-top: 8px;
-    }
-
-    .price {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .benefit-card {
-      padding: 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: left;
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-    }
-
-    .benefit-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 18px;
-      background: linear-gradient(135deg, rgba(185,149,99,0.16), rgba(255,255,255,0.95));
-      border: 1px solid rgba(185,149,99,0.12);
-      font-size: 1.2rem;
-    }
-
-    .benefit-card p {
-      color: var(--graphite-soft);
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .review-card {
-      padding: 30px;
-      position: relative;
-      overflow: hidden;
-      min-height: 100%;
-    }
-
-    .review-card::before {
-      content: "“";
-      position: absolute;
-      top: 18px;
-      right: 22px;
-      font-family: Georgia, serif;
-      font-size: 5rem;
-      color: rgba(185,149,99,0.14);
-      line-height: 1;
-    }
-
-    .stars {
-      letter-spacing: 0.14em;
-      color: var(--gold);
-      font-size: 1rem;
-      margin-bottom: 16px;
-    }
-
-    .review-card p {
-      color: var(--graphite-soft);
-      margin-bottom: 18px;
-    }
-
-    .review-author strong {
-      display: block;
-      font-size: 1rem;
-    }
-
-    .review-author span {
-      color: var(--graphite-soft);
-      font-size: 0.92rem;
-    }
-
-    .faq-list {
-      display: grid;
-      gap: 16px;
-    }
-
-    .faq-item {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .faq-item summary {
-      list-style: none;
-      padding: 24px 28px;
-      font-weight: 600;
-      cursor: pointer;
-      position: relative;
-      transition: background 0.25s ease;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: "+";
-      position: absolute;
-      right: 28px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.4rem;
-      color: var(--gold);
-      transition: transform 0.25s ease;
-    }
-
-    .faq-item[open] summary::after {
-      transform: translateY(-50%) rotate(45deg);
-    }
-
-    .faq-item[open] summary {
-      background: rgba(185,149,99,0.05);
-    }
-
-    .faq-content {
-      padding: 0 28px 24px;
-      color: var(--graphite-soft);
-      max-width: 900px;
-    }
-
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .contact-card {
-      padding: 34px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .contact-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(45, 42, 40, 0.06);
-    }
-
-    .contact-item span {
-      color: var(--graphite-soft);
-    }
-
-    .socials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .socials a {
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid rgba(185,149,99,0.12);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    .socials a:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-soft);
-      border-color: rgba(185,149,99,0.28);
-    }
-
-    .contact-panel {
-      min-height: 100%;
-      background:
-        radial-gradient(circle at top right, rgba(185,149,99,0.14), transparent 28%),
-        linear-gradient(180deg, rgba(255,255,255,0.82), rgba(239,228,210,0.52));
-    }
-
-    footer {
-      padding: 28px 0 36px;
-      border-top: 1px solid rgba(45, 42, 40, 0.06);
-      color: var(--graphite-soft);
-      font-size: 0.95rem;
-    }
-
-    .footer-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .accent-line {
-      display: inline-block;
-      background: linear-gradient(135deg, #7f6748, #b39a76);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    @media (max-width: 1100px) {
-      .about-grid,
-      .contact-wrap,
-      .products-grid,
-      .benefits-grid,
-      .reviews-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero-visual {
-        min-height: 520px;
-      }
-    }
-
-    @media (max-width: 840px) {
-      .nav-links {
-        display: none;
-      }
-
-      .navbar .btn-secondary {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: inline-flex;
-      }
-
-      .section {
-        padding: 96px 0;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 24px;
-      }
-
-      .about-grid,
-      .contact-wrap,
-      .products-grid,
-      .benefits-grid,
-      .reviews-grid,
-      .metrics,
-      .about-points,
-      .hero-grid,
-      .about-grid,
-      .contact-wrap,
-      .products-grid,
-      .benefits-grid,
-      .reviews-grid,
-      .metrics,
-      .about-points {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-visual {
-        min-height: 440px;
-      }
-
-      .hero-card {
-        padding: 22px;
-      }
-
-      .hero-bottles {
-        min-height: 360px;
-      }
-
-      .floating-badge {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        margin-top: 18px;
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(100% - 24px, var(--container));
-      }
-
-      .nav-wrap {
-        padding: 12px 0;
-      }
-
-      .brand {
-        gap: 10px;
-        font-size: 0.95rem;
-      }
-
-      .brand-mark {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-      }
-
-      .section {
-        padding: 78px 0;
-      }
-
-      h1 {
-        font-size: clamp(2.7rem, 14vw, 4rem);
-      }
-
-      h2 {
-        font-size: clamp(2rem, 11vw, 3rem);
-      }
-
-      .hero-actions,
-      .product-footer,
-      .footer-row,
-      .contact-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero-note,
-      .section-header {
-        text-align: left;
-        justify-content: flex-start;
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      .hero-copy {
-        align-items: flex-start;
-        text-align: left;
-      }
-
-      .btn,
-      .product-footer .btn {
-        width: 100%;
-      }
-
-      .hero-visual {
-        min-height: 420px;
-      }
-
-      .hero-bottles {
-        gap: 12px;
-        min-height: 300px;
-      }
-
-      .bottle-tall {
-        height: 300px;
-      }
-
-      .bottle-mid {
-        height: 260px;
-      }
-
-      .bottle-short {
-        height: 235px;
-      }
-
-      .about-card,
-      .about-panel,
-      .benefit-card,
-      .product-card,
-      .review-card,
-      .contact-card {
-        padding: 22px;
-      }
-
-      .faq-item summary,
-      .faq-content {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .faq-item summary::after {
-        right: 20px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZN | Premium Haircare Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --milk: #FDFBF7;
+            --warm-white: #FFFFFF;
+            --beige: #F5F1E9;
+            --champagne: #EBE4D8;
+            --sand: #D9C5B2;
+            --gold: #C5A059;
+            --graphite: #2D2D2D;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Общие стили и Скролл */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--milk); color: var(--graphite); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 400; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+        
+        /* Анимация появления */
+        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Навигация */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 25px 0;
+            background: rgba(253, 251, 247, 0.8); backdrop-filter: blur(20px);
+            z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 32px; letter-spacing: 6px; font-weight: 600; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; transition: 0.3s; }
+        .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+        /* Корзина и иконки */
+        .nav-actions { display: flex; align-items: center; gap: 25px; }
+        .cart-icon { position: relative; cursor: pointer; transition: 0.3s; }
+        .cart-icon:hover { color: var(--gold); }
+        .cart-count {
+            position: absolute; top: -8px; right: -10px;
+            background: var(--gold); color: white; font-size: 10px;
+            width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; font-family: sans-serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--graphite);
+            background: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), 
+                        url('https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&q=80&w=2000') center/cover;
+        }
+        .hero-content h1 { font-size: clamp(45px, 10vw, 85px); line-height: 1.1; margin-bottom: 25px; }
+        .hero-content p { font-size: 14px; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 40px; opacity: 0.8; }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block; padding: 20px 45px; background: var(--graphite);
+            color: white; font-size: 11px; text-transform: uppercase; letter-spacing: 3px;
+            border: 1px solid var(--graphite); cursor: pointer; transition: 0.4s;
+        }
+        .btn:hover { background: transparent; color: var(--graphite); }
+        .btn-gold { background: var(--gold); border-color: var(--gold); }
+        .btn-gold:hover { background: var(--graphite); border-color: var(--graphite); color: white; }
+
+        /* О бренде */
+        .about-section { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; padding: 150px 0; }
+        .about-img { height: 700px; background: url('https://images.unsplash.com/photo-1600607687940-47a0f9259d4b?auto=format&fit=crop&q=80&w=1000') center/cover; border-radius: 400px 400px 0 0; }
+        .about-text h2 { font-size: 48px; margin-bottom: 35px; line-height: 1.2; }
+        .about-text p { font-size: 17px; color: #666; margin-bottom: 25px; font-weight: 300; }
+
+        /* Каталог */
+        .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+        .product-card { background: white; padding: 40px 30px; text-align: center; transition: 0.4s; position: relative; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.03); }
+        .product-card img { width: 100%; height: 350px; object-fit: cover; background: var(--beige); margin-bottom: 30px; }
+        .product-card h3 { font-size: 22px; margin-bottom: 10px; }
+        .product-tag { font-size: 11px; text-transform: uppercase; color: var(--gold); letter-spacing: 2px; margin-bottom: 15px; display: block; }
+        .product-price { font-size: 18px; margin: 20px 0; font-weight: 500; }
+        .product-meta { font-size: 12px; opacity: 0.5; margin-bottom: 25px; }
+
+        /* Преимущества */
+        .adv-section { background: var(--beige); padding: 120px 0; }
+        .adv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; }
+        .adv-item h4 { font-size: 24px; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+        .adv-item h4::after { content: ''; height: 1px; width: 40px; background: var(--gold); }
+
+        /* Корзина Sidebar */
+        .cart-drawer {
+            position: fixed; top: 0; right: -100%; width: 450px; height: 100%;
+            background: white; z-index: 2000; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 50px; display: flex; flex-direction: column;
+        }
+        .cart-drawer.active { right: 0; }
+        .cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1500; display: none; }
+        .cart-overlay.active { display: block; }
+
+        /* Тост уведомление */
+        #toast {
+            position: fixed; bottom: 40px; right: 40px; background: var(--graphite); color: white;
+            padding: 20px 40px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+            z-index: 3000; opacity: 0; transition: 0.4s; transform: translateX(20px);
+        }
+        #toast.show { opacity: 1; transform: translateX(0); }
+
+        /* FAQ */
+        .faq-item { border-bottom: 1px solid var(--champagne); padding: 30px 0; cursor: pointer; }
+        .faq-item summary { list-style: none; display: flex; justify-content: space-between; align-items: center; font-family: 'Playfair Display'; font-size: 20px; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+
+        /* Контакты */
+        .contact-form-box { background: white; padding: 80px; max-width: 800px; margin: -100px auto 0; box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+        .input-group { margin-bottom: 30px; }
+        .input-group label { display: block; font-size: 11px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.6; }
+        .input-group input, .input-group textarea { width: 100%; border: none; border-bottom: 1px solid var(--champagne); padding: 15px 0; outline: none; font-family: inherit; font-size: 15px; transition: 0.3s; }
+        .input-group input:focus { border-color: var(--gold); }
+
+        /* Footer */
+        footer { background: var(--graphite); color: #999; padding: 100px 0 50px; font-size: 13px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 80px; }
+        .footer-logo { font-size: 40px; color: white; margin-bottom: 30px; letter-spacing: 5px; }
+        footer h5 { color: white; font-family: 'Montserrat'; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+
+        @media (max-width: 1024px) {
+            .catalog-grid, .adv-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-section { grid-template-columns: 1fr; }
+            .cart-drawer { width: 100%; }
+        }
+        @media (max-width: 768px) {
+            .catalog-grid, .adv-grid, .footer-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .contact-form-box { padding: 40px 20px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="nav-wrap">
-    <div class="container navbar">
-      <a class="brand" href="#hero" aria-label="ZN">
-        <span class="brand-mark">ZN</span>
-        <span>ZN Haircare</span>
-      </a>
 
-      <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <div class="cart-overlay" id="overlay"></div>
+    <div id="toast">Продукт добавлен в коллекцию</div>
 
-      <nav class="nav-links" aria-label="Навигация по странице">
-        <a href="#about">О бренде</a>
-        <a href="#catalog">Каталог</a>
-        <a href="#benefits">Преимущества</a>
-        <a href="#reviews">Отзывы</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
-
-      <a class="btn btn-secondary" href="#catalog">Смотреть продукты</a>
+    <div class="cart-drawer" id="cartDrawer">
+        <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 50px;">
+            <h3 style="font-size: 28px;">Ваш выбор</h3>
+            <span id="closeCart" style="cursor:pointer; font-size: 30px;">&times;</span>
+        </div>
+        <div id="cartItems" style="flex-grow: 1; overflow-y: auto;">
+            <p style="text-align: center; opacity: 0.5; margin-top: 100px;">Здесь пока пусто</p>
+        </div>
+        <div style="border-top: 1px solid var(--beige); padding-top: 30px;">
+            <div style="display:flex; justify-content: space-between; font-size: 20px; margin-bottom: 30px;">
+                <span>Итого:</span>
+                <span id="totalSum">0 ₽</span>
+            </div>
+            <button class="btn btn-gold" style="width: 100%;">Оформить заказ</button>
+        </div>
     </div>
-  </div>
 
-  <div class="mobile-menu" id="mobile-menu" aria-label="Мобильная навигация">
-    <a href="#about">О бренде</a>
-    <a href="#catalog">Каталог</a>
-    <a href="#benefits">Преимущества</a>
-    <a href="#reviews">Отзывы</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contacts">Контакты</a>
-  </div>
-
-  <main>
-    <section class="hero" id="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Премиальный уход собственного производства</span>
-          <h1>Лаконичный premium-уход для волос, который работает красиво.</h1>
-          <p>
-            ZN — бренд премиального ухода за волосами собственного производства. Чистые формулы, спокойная эстетика и профессиональный результат без лишнего визуального шума.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#catalog">Выбрать уход</a>
-            <a class="btn btn-secondary" href="#about">Узнать о философии ZN</a>
-          </div>
-          <div class="hero-note">
-            <span>Собственное производство</span>
-            <span>Понятные формулы</span>
-            <span>Уход, которым удобно пользоваться каждый день</span>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-orb orb-1"></div>
-          <div class="hero-orb orb-2"></div>
-          <div class="hero-card">
-            <div class="hero-bottles">
-              <div class="bottle bottle-tall">
-                <div class="bottle-cap"></div>
-                <div class="bottle-label">Шампунь<br>Увлажнение</div>
-              </div>
-              <div class="bottle bottle-mid">
-                <div class="bottle-cap"></div>
-                <div class="bottle-label">Маска<br>Интенсивное питание</div>
-              </div>
-              <div class="bottle bottle-short">
-                <div class="bottle-cap"></div>
-                <div class="bottle-label">Бальзам<br>Восстановление</div>
-              </div>
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">ZN</a>
+            <div class="nav-links">
+                <a href="#about">Философия</a>
+                <a href="#catalog">Коллекция</a>
+                <a href="#advantages">Преимущества</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Контакты</a>
             </div>
-            <div class="floating-badge">
-              <strong>ZN Care</strong>
-              <span>Спокойный дизайн, удобный ритуал и результат, который выглядит естественно и дорого.</span>
+            <div class="nav-actions">
+                <div class="cart-icon" id="openCart">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
+                    <div class="cart-count" id="cartCount">0</div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content reveal">
+            <p>Laboratory of Pure Aesthetics</p>
+            <h1>ZN: Красота в<br>каждой детали</h1>
+            <a href="#catalog" class="btn">Исследовать коллекцию</a>
+        </div>
     </section>
 
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">О бренде</span>
-          <h2>Минималистичный бренд ухода, созданный вокруг качества и удобства.</h2>
-          <p>
-            Мы создаём премиальные средства для волос собственного производства, где каждая деталь подчинена одной идее: сделать уход удобным, понятным и красивым в повседневной жизни.
-          </p>
+    <section id="about" class="container">
+        <div class="about-section">
+            <div class="about-img reveal"></div>
+            <div class="about-text reveal">
+                <h2>Мы создаем не уход,<br>а ритуал самопознания</h2>
+                <p>ZN — это манифест осознанного отношения к себе. В нашей собственной лаборатории мы отказались от шаблонных решений в пользу формул, которые работают на клеточном уровне.</p>
+                <p>Каждый флакон — это результат синергии редких природных экстрактов и инновационных пептидных комплексов. Мы верим, что волосы заслуживают того же внимания, что и кожа лица.</p>
+                <a href="#catalog" class="btn" style="background: transparent; color: var(--graphite); margin-top: 20px;">Наш подход</a>
+            </div>
         </div>
-
-        <div class="about-grid">
-          <div class="about-card">
-            <h3>Философия бренда</h3>
-            <p>
-              ZN появился из идеи, что качественный уход за волосами должен не просто решать задачу, а менять само ощущение от ежедневной рутины. Нам важны не только результат и безопасность, но и визуальная культура ухода: текстура, аромат, упаковка, состояние волос после каждого применения.
-            </p>
-            <p>
-              Мы развиваем собственное производство, чтобы контролировать каждый этап — от подбора ингредиентов до финальной упаковки. Такой подход позволяет сохранять высокий стандарт качества и создавать продукты, которым действительно хочется доверять.
-            </p>
-
-            <div class="about-points">
-              <div class="about-point">
-                <strong>Собственное производство</strong>
-                <span>Контроль качества на каждом этапе создания формулы.</span>
-              </div>
-              <div class="about-point">
-                <strong>Ингредиенты высокого уровня</strong>
-                <span>Комфортные текстуры и деликатное действие без перегруза.</span>
-              </div>
-              <div class="about-point">
-                <strong>Эстетика luxury care</strong>
-                <span>Продукты, которые украшают ванную комнату и рутину.</span>
-              </div>
-              <div class="about-point">
-                <strong>Профессиональный результат</strong>
-                <span>Гладкость, плотность, мягкость и ухоженный блеск дома.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-panel contact-panel">
-            <div>
-              <span class="eyebrow">Почему выбирают ZN</span>
-              <h3>Премиальный уход с характером бренда, а не случайный набор средств.</h3>
-              <p class="section-text">
-                Мы создаём коллекции, которые легко сочетать между собой, чтобы выстраивать понятный и красивый ритуал ухода под состояние волос и образ жизни.
-              </p>
-            </div>
-
-            <div class="metrics">
-              <div class="metric">
-                <strong>6</strong>
-                <span>ключевых продуктов для базового premium-ухода</span>
-              </div>
-              <div class="metric">
-                <strong>360°</strong>
-                <span>контроль над качеством — от формулы до визуальной подачи</span>
-              </div>
-              <div class="metric">
-                <strong>25–45</strong>
-                <span>возраст основной аудитории, ценящей результат и эстетику</span>
-              </div>
-              <div class="metric">
-                <strong>1 ritual</strong>
-                <span>уход, который выглядит красиво и работает профессионально</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="section" id="catalog">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Каталог продукции</span>
-          <h2>Шесть средств, из которых легко собрать понятный ритуал ухода.</h2>
-          <p>
-            В каталоге только базовые, действительно нужные продукты: мягкое очищение, восстановление, увлажнение и питание без лишней сложности.
-          </p>
+    <section id="catalog" class="section-padding container">
+        <h2 style="text-align: center; font-size: 44px; margin-bottom: 80px;" class="reveal">Золотой стандарт ZN</h2>
+        <div class="catalog-grid">
+            <div class="product-card reveal">
+                <span class="product-tag">Увлажнение</span>
+                <img src="https://images.unsplash.com/photo-1585232356846-530232c3f13e?auto=format&fit=crop&q=80&w=500" alt="ZN">
+                <h3>Шампунь Hydration</h3>
+                <p class="product-meta">Объем: 250 мл | Интенсивный блеск</p>
+                <div class="product-price">2 400 ₽</div>
+                <button class="btn btn-buy" data-name="Шампунь Hydration" data-price="2400">В корзину</button>
+            </div>
+            <div class="product-card reveal">
+                <span class="product-tag">Восстановление</span>
+                <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&q=80&w=500" alt="ZN">
+                <h3>Шампунь Repair</h3>
+                <p class="product-meta">Объем: 250 мл | Реконструкция</p>
+                <div class="product-price">2 600 ₽</div>
+                <button class="btn btn-buy" data-name="Шампунь Repair" data-price="2600">В корзину</button>
+            </div>
+            <div class="product-card reveal">
+                <span class="product-tag">Объем</span>
+                <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&q=80&w=500" alt="ZN">
+                <h3>Шампунь Volume</h3>
+                <p class="product-meta">Объем: 250 мл | Плотность</p>
+                <div class="product-price">2 300 ₽</div>
+                <button class="btn btn-buy" data-name="Шампунь Volume" data-price="2300">В корзину</button>
+            </div>
+            <div class="product-card reveal">
+                <span class="product-tag">SOS-Уход</span>
+                <img src="https://images.unsplash.com/photo-1626784215021-2e39ccf971cd?auto=format&fit=crop&q=80&w=500" alt="ZN">
+                <h3>Маска Intense</h3>
+                <p class="product-meta">Объем: 200 мл | Глубокое питание</p>
+                <div class="product-price">3 100 ₽</div>
+                <button class="btn btn-buy" data-name="Маска Intense" data-price="3100">В корзину</button>
+            </div>
+            <div class="product-card reveal">
+                <span class="product-tag">Уход</span>
+                <img src="https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&q=80&w=500" alt="ZN">
+                <h3>Бальзам Hydration</h3>
+                <p class="product-meta">Объем: 200 мл | Легкое расчесывание</p>
+                <div class="product-price">2 100 ₽</div>
+                <button class="btn btn-buy" data-name="Бальзам Hydration" data-price="2100">В корзину</button>
+            </div>
+            <div class="product-card reveal">
+                <span class="product-tag">Защита</span>
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=500" alt="ZN">
+                <h3>Бальзам Repair</h3>
+                <p class="product-meta">Объем: 200 мл | Барьерная защита</p>
+                <div class="product-price">2 200 ₽</div>
+                <button class="btn btn-buy" data-name="Бальзам Repair" data-price="2200">В корзину</button>
+            </div>
         </div>
-
-        <div class="products-grid">
-          <article class="product-card">
-            <div class="product-visual"><div class="mini-pack"></div></div>
-            <span class="product-tag">Шампунь</span>
-            <h3 class="product-title">«Увлажнение»</h3>
-            <p class="product-description">Мягко очищает кожу головы и длину, помогает сохранить комфорт, эластичность и гладкость волос без утяжеления.</p>
-            <div class="product-specs">
-              <div class="spec"><span>Основной эффект</span><strong>Мягкость и увлажнение</strong></div>
-              <div class="spec"><span>Объём</span><strong>250 мл</strong></div>
-              <div class="spec"><span>Для кого</span><strong>Для сухих и нормальных волос</strong></div>
-            </div>
-            <div class="product-footer">
-              <div class="price">1 890 ₽</div>
-              <a class="btn btn-primary" href="#contacts">Купить</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-visual"><div class="mini-pack"></div></div>
-            <span class="product-tag">Шампунь</span>
-            <h3 class="product-title">«Восстановление»</h3>
-            <p class="product-description">Деликатное очищение для волос, которым нужен более плотный, ухоженный вид, гладкость и ощущение силы по длине.</p>
-            <div class="product-specs">
-              <div class="spec"><span>Основной эффект</span><strong>Плотность и гладкость</strong></div>
-              <div class="spec"><span>Объём</span><strong>250 мл</strong></div>
-              <div class="spec"><span>Для кого</span><strong>Для повреждённых волос</strong></div>
-            </div>
-            <div class="product-footer">
-              <div class="price">1 950 ₽</div>
-              <a class="btn btn-primary" href="#contacts">Купить</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-visual"><div class="mini-pack"></div></div>
-            <span class="product-tag">Шампунь</span>
-            <h3 class="product-title">«Объём»</h3>
-            <p class="product-description">Создаёт ощущение чистоты, воздушности и более живой текстуры волос, сохраняя подвижность и лёгкий прикорневой объём.</p>
-            <div class="product-specs">
-              <div class="spec"><span>Основной эффект</span><strong>Лёгкость и объём</strong></div>
-              <div class="spec"><span>Объём</span><strong>250 мл</strong></div>
-              <div class="spec"><span>Для кого</span><strong>Для тонких волос</strong></div>
-            </div>
-            <div class="product-footer">
-              <div class="price">1 890 ₽</div>
-              <a class="btn btn-primary" href="#contacts">Купить</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-visual"><div class="mini-pack mask"></div></div>
-            <span class="product-tag">Маска для волос</span>
-            <h3 class="product-title">«Интенсивное питание»</h3>
-            <p class="product-description">Плотная, насыщенная маска для глубокого ухода: смягчает длину, дисциплинирует пушистость и возвращает ощущение ухоженности.</p>
-            <div class="product-specs">
-              <div class="spec"><span>Основной эффект</span><strong>Питание и гладкость</strong></div>
-              <div class="spec"><span>Объём</span><strong>200 мл</strong></div>
-              <div class="spec"><span>Формат ухода</span><strong>1–2 раза в неделю</strong></div>
-            </div>
-            <div class="product-footer">
-              <div class="price">2 490 ₽</div>
-              <a class="btn btn-primary" href="#contacts">Купить</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-visual"><div class="mini-pack"></div></div>
-            <span class="product-tag">Бальзам для волос</span>
-            <h3 class="product-title">«Увлажнение»</h3>
-            <p class="product-description">Лёгкий ухаживающий бальзам для мягкости, эластичности и сияния. Помогает волосам выглядеть более гладкими и послушными.</p>
-            <div class="product-specs">
-              <div class="spec"><span>Основной эффект</span><strong>Комфорт и блеск</strong></div>
-              <div class="spec"><span>Объём</span><strong>250 мл</strong></div>
-              <div class="spec"><span>Текстура</span><strong>Лёгкая кремовая</strong></div>
-            </div>
-            <div class="product-footer">
-              <div class="price">1 790 ₽</div>
-              <a class="btn btn-primary" href="#contacts">Купить</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-visual"><div class="mini-pack"></div></div>
-            <span class="product-tag">Бальзам для волос</span>
-            <h3 class="product-title">«Восстановление»</h3>
-            <p class="product-description">Уход для повреждённой длины, который помогает сделать волосы более гладкими, собранными и визуально более плотными.</p>
-            <div class="product-specs">
-              <div class="spec"><span>Основной эффект</span><strong>Смягчение и восстановление</strong></div>
-              <div class="spec"><span>Объём</span><strong>250 мл</strong></div>
-              <div class="spec"><span>Результат</span><strong>Гладкость по длине</strong></div>
-            </div>
-            <div class="product-footer">
-              <div class="price">1 850 ₽</div>
-              <a class="btn btn-primary" href="#contacts">Купить</a>
-            </div>
-          </article>
-        </div>
-      </div>
     </section>
 
-    <section class="section" id="benefits">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Преимущества</span>
-          <h2>Преимущества, которые ощущаются в использовании каждый день.</h2>
-          <p>
-            Мы строим не просто магазин ухода, а цельный бренд с понятными стандартами качества, эстетикой и уважением к потребностям современной женщины.
-          </p>
+    <section id="advantages" class="adv-section">
+        <div class="container">
+            <h2 style="font-size: 40px; margin-bottom: 70px;" class="reveal">Почему ZN — это выбор лучших</h2>
+            <div class="adv-grid">
+                <div class="adv-item reveal">
+                    <h4>In-House Lab</h4>
+                    <p>Полный цикл производства от разработки молекулы до упаковки в одном месте.</p>
+                </div>
+                <div class="adv-item reveal">
+                    <h4>Clean Luxury</h4>
+                    <p>Исключаем сульфаты и парабены, оставляя место только для работающих активов.</p>
+                </div>
+                <div class="adv-item reveal">
+                    <h4>Bio-Science</h4>
+                    <p>Использование интеллектуальных пептидов для таргетного восстановления волос.</p>
+                </div>
+            </div>
         </div>
-
-        <div class="benefits-grid">
-          <article class="benefit-card">
-            <div class="benefit-icon">01</div>
-            <h3>Собственное производство</h3>
-            <p>Позволяет нам контролировать формулы, качество сырья и финальный продукт без компромиссов.</p>
-          </article>
-          <article class="benefit-card">
-            <div class="benefit-icon">02</div>
-            <h3>Премиальные ингредиенты</h3>
-            <p>Комфортные текстуры, деликатный аромат и продуманный баланс активных компонентов.</p>
-          </article>
-          <article class="benefit-card">
-            <div class="benefit-icon">03</div>
-            <h3>Безопасные формулы</h3>
-            <p>Уход, рассчитанный на регулярное применение и комфортное ощущение волос после каждого мытья.</p>
-          </article>
-          <article class="benefit-card">
-            <div class="benefit-icon">04</div>
-            <h3>Профессиональный результат</h3>
-            <p>Больше гладкости, мягкости, блеска и ухоженного вида без ощущения тяжести.</p>
-          </article>
-          <article class="benefit-card">
-            <div class="benefit-icon">05</div>
-            <h3>Эстетичная упаковка</h3>
-            <p>Минималистичный luxury-дизайн, который выглядит достойно и органично в любом интерьере.</p>
-          </article>
-          <article class="benefit-card">
-            <div class="benefit-icon">06</div>
-            <h3>Доставка по всей стране</h3>
-            <p>Мы делаем премиальный уход доступным в разных городах, сохраняя высокий уровень сервиса.</p>
-          </article>
-        </div>
-      </div>
     </section>
 
-    <section class="section" id="reviews">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Отзывы клиентов</span>
-          <h2>Отзывы о ZN — про комфорт, качество и заметный результат.</h2>
-          <p>
-            Женщины выбирают ZN за заметный эффект, премиальную подачу и то самое чувство, когда уход за собой становится красивым ритуалом.
-          </p>
+    <section id="faq" class="section-padding container">
+        <h2 style="text-align:center; margin-bottom: 60px;" class="reveal">Часто задаваемые вопросы</h2>
+        <div style="max-width: 800px; margin: 0 auto;" class="reveal">
+            <details class="faq-item">
+                <summary>Как часто можно использовать маску Intense?</summary>
+                <p style="padding-top: 20px; opacity: 0.7;">Мы рекомендуем использовать маску 1-2 раза в неделю в зависимости от степени повреждения волос.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Подходят ли продукты для чувствительной кожи головы?</summary>
+                <p style="padding-top: 20px; opacity: 0.7;">Да, наши формулы гипоаллергенны и прошли дерматологический контроль.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Где производится продукция ZN?</summary>
+                <p style="padding-top: 20px; opacity: 0.7;">Вся линейка производится на нашем высокотехнологичном заводе в Подмосковье под строгим контролем качества.</p>
+            </details>
         </div>
-
-        <div class="reviews-grid">
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>«Очень красивый бренд. Но главное — волосы действительно выглядят дороже: гладкие, мягкие, блестящие, без пушистости. Шампунь и бальзам “Восстановление” — моя любовь.»</p>
-            <div class="review-author">
-              <strong>Елена, 34 года</strong>
-              <span>Москва</span>
-            </div>
-          </article>
-
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>«Редкий случай, когда продукт приятно держать в руках и приятно использовать. У ZN очень деликатные текстуры, а волосы после маски выглядят так, будто я была у мастера.»</p>
-            <div class="review-author">
-              <strong>Анастасия, 29 лет</strong>
-              <span>Казань</span>
-            </div>
-          </article>
-
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-            <p>«Шампунь “Объём” даёт именно тот эффект, который я искала: волосы лёгкие, свежие и не теряют форму к вечеру. Очень достойный premium-уход.»</p>
-            <div class="review-author">
-              <strong>Марина, 41 год</strong>
-              <span>Санкт-Петербург</span>
-            </div>
-          </article>
-        </div>
-      </div>
     </section>
 
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">FAQ</span>
-          <h2>Частые вопросы о продуктах ZN.</h2>
-          <p>
-            Всё, что важно знать перед покупкой, чтобы подобрать уход осознанно и с уверенностью.
-          </p>
+    <section id="contact" style="padding-bottom: 150px;">
+        <div style="height: 400px; background: var(--champagne);"></div>
+        <div class="container">
+            <div class="contact-form-box reveal">
+                <h2 style="text-align: center; margin-bottom: 40px;">Консультация эксперта</h2>
+                <form id="orderForm">
+                    <div class="input-group">
+                        <label>Ваше имя</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Телефон / Telegram</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Опишите ваш тип волос</label>
+                        <textarea rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold" style="width: 100%;">Отправить запрос</button>
+                </form>
+            </div>
         </div>
-
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary>Подойдут ли продукты ZN для ежедневного ухода?</summary>
-            <div class="faq-content">
-              Да. Формулы разработаны для регулярного использования и комфортного ощущения волос и кожи головы. Выбор конкретной линейки зависит от состояния длины и желаемого результата.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Чем отличаются линейки «Увлажнение», «Восстановление» и «Объём»?</summary>
-            <div class="faq-content">
-              «Увлажнение» направлено на мягкость, эластичность и комфорт. «Восстановление» — на более плотный, гладкий и ухоженный вид повреждённой длины. «Объём» создан для лёгкости, свежести и воздушной текстуры волос.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Можно ли сочетать продукты из разных линеек между собой?</summary>
-            <div class="faq-content">
-              Да, это один из удобных сценариев ухода. Например, шампунь «Объём» можно сочетать с бальзамом «Увлажнение», если хочется сохранить лёгкость у корней и мягкость по длине.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Как часто использовать маску «Интенсивное питание»?</summary>
-            <div class="faq-content">
-              Оптимально 1–2 раза в неделю, в зависимости от состояния волос. Для сухой или повреждённой длины маска становится ключевым этапом, который помогает поддерживать гладкость и визуальную плотность.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Есть ли у ZN доставка по стране?</summary>
-            <div class="faq-content">
-              Да, мы отправляем заказы по всей стране. Актуальные способы доставки и условия можно уточнить в контактном разделе или в социальных сетях бренда.
-            </div>
-          </details>
-        </div>
-      </div>
     </section>
 
-    <section class="section" id="contacts">
-      <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Контакты</span>
-          <h2>Свяжитесь с ZN, чтобы подобрать уход без лишних сомнений.</h2>
-          <p>
-            Мы всегда готовы помочь с выбором средств, рассказать о формулах и оформить заказ с вниманием к деталям.
-          </p>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo footer-logo">ZN</div>
+                    <p>Искусство ухода, которое вы заслуживаете.</p>
+                </div>
+                <div>
+                    <h5>Навигация</h5>
+                    <p><a href="#about">О нас</a></p>
+                    <p><a href="#catalog">Каталог</a></p>
+                    <p><a href="#faq">Помощь</a></p>
+                </div>
+                <div>
+                    <h5>Контакты</h5>
+                    <p>8 (800) 700-12-34</p>
+                    <p>concierge@zn.beauty</p>
+                    <p>Пн-Вс: 09:00 — 21:00</p>
+                </div>
+                <div>
+                    <h5>Социальные сети</h5>
+                    <p><a href="#">Instagram</a></p>
+                    <p><a href="#">Telegram</a></p>
+                    <p><a href="#">Pinterest</a></p>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05);">
+                &copy; 2026 ZN BEAUTY LAB. LUXURY HAIRCARE PRODUCTION.
+            </div>
         </div>
+    </footer>
 
-        <div class="contact-wrap">
-          <div class="contact-card">
-            <h3>Контактная информация</h3>
-            <div class="contact-list">
-              <div class="contact-item">
-                <strong>Адрес</strong>
-                <span>г. Москва, Кутузовский проспект, 18</span>
-              </div>
-              <div class="contact-item">
-                <strong>Часы работы</strong>
-                <span>Пн–Сб: 10:00–20:00, Вс: 11:00–18:00</span>
-              </div>
-              <div class="contact-item">
-                <strong>Телефон</strong>
-                <span>+7 (495) 555-24-88</span>
-              </div>
-              <div class="contact-item">
-                <strong>Email</strong>
-                <span>hello@znhaircare.ru</span>
-              </div>
-            </div>
+    <script>
+        // Intersection Observer для анимации появления
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
 
-            <div class="socials">
-              <a href="#">Instagram</a>
-              <a href="#">Telegram</a>
-              <a href="#">VK</a>
-              <a href="#">Pinterest</a>
-            </div>
-          </div>
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-          <div class="contact-card contact-panel">
-            <span class="eyebrow">ZN Concierge</span>
-            <h3>Поможем собрать персональный ритуал ухода.</h3>
-            <p class="section-text">
-              Если вы не уверены, какая линейка подойдёт именно вам, начните с консультации: мы подскажем, как сочетать продукты ZN для мягкости, восстановления, объёма и красивого блеска без лишних шагов.
-            </p>
-            <div class="hero-actions" style="margin-top: 26px; margin-bottom: 0;">
-              <a class="btn btn-primary" href="tel:+74955552488">Позвонить</a>
-              <a class="btn btn-secondary" href="mailto:hello@znhaircare.ru">Написать на email</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        // Логика корзины
+        let cart = [];
+        const cartDrawer = document.getElementById('cartDrawer');
+        const overlay = document.getElementById('overlay');
+        const cartCount = document.getElementById('cartCount');
+        const cartItems = document.getElementById('cartItems');
+        const totalSum = document.getElementById('totalSum');
+        const toast = document.getElementById('toast');
 
-  <footer>
-    <div class="container footer-row">
-      <div>© 2026 ZN Haircare — премиальный уход за волосами собственного производства.</div>
-      <div>Эстетика. Формула. Результат.</div>
-    </div>
-  </footer>
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+        document.getElementById('openCart').onclick = () => {
+            cartDrawer.classList.add('active');
+            overlay.classList.add('active');
+        };
 
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.toggle('open');
-        menuToggle.classList.toggle('active', isOpen);
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-      });
+        document.getElementById('closeCart').onclick = () => {
+            cartDrawer.classList.remove('active');
+            overlay.classList.remove('active');
+        };
 
-      mobileLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('open');
-          menuToggle.classList.remove('active');
-          menuToggle.setAttribute('aria-expanded', 'false');
+        overlay.onclick = () => {
+            cartDrawer.classList.remove('active');
+            overlay.classList.remove('active');
+        };
+
+        document.querySelectorAll('.btn-buy').forEach(btn => {
+            btn.onclick = () => {
+                const name = btn.dataset.name;
+                const price = parseInt(btn.dataset.price);
+                cart.push({name, price});
+                updateCart();
+                
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
+            };
         });
-      });
 
-      document.addEventListener('click', (event) => {
-        const clickedInsideMenu = mobileMenu.contains(event.target);
-        const clickedToggle = menuToggle.contains(event.target);
-
-        if (!clickedInsideMenu && !clickedToggle && mobileMenu.classList.contains('open')) {
-          mobileMenu.classList.remove('open');
-          menuToggle.classList.remove('active');
-          menuToggle.setAttribute('aria-expanded', 'false');
+        function updateCart() {
+            cartCount.innerText = cart.length;
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; opacity: 0.5; margin-top: 100px;">Здесь пока пусто</p>';
+                totalSum.innerText = '0 ₽';
+                return;
+            }
+            cartItems.innerHTML = cart.map((item, idx) => `
+                <div style="display:flex; justify-content: space-between; margin-bottom: 20px; font-size: 14px;">
+                    <span>${item.name}</span>
+                    <span>${item.price} ₽ <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:var(--gold); margin-left:10px; cursor:pointer;">&times;</button></span>
+                </div>
+            `).join('');
+            totalSum.innerText = cart.reduce((sum, item) => sum + item.price, 0) + ' ₽';
         }
-      });
-    }
-  </script>
+
+        window.removeFromCart = (idx) => {
+            cart.splice(idx, 1);
+            updateCart();
+        };
+
+        document.getElementById('orderForm').onsubmit = (e) => {
+            e.preventDefault();
+            alert('Ваша заявка принята. Эксперт ZN свяжется с вами в ближайшее время.');
+            e.target.reset();
+        };
+    </script>
 </body>
 </html>
