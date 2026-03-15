@@ -36,7 +36,8 @@
             z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.03);
         }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 32px; letter-spacing: 6px; font-weight: 600; }
+        .logo { display: inline-flex; align-items: center; min-width: 88px; }
+        .logo img { height: 44px; width: auto; display: block; transform: scale(2); transform-origin: left center; }
         .nav-links { display: flex; gap: 40px; }
         .nav-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; transition: 0.3s; }
         .nav-links a:hover { opacity: 1; color: var(--gold); }
@@ -56,8 +57,8 @@
         .hero {
             height: 100vh; display: flex; align-items: center; justify-content: center;
             text-align: center; color: var(--graphite);
-            background: linear-gradient(rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.2)), 
-                        url('https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&q=80&w=2000') center/cover;
+            background: linear-gradient(rgba(253, 251, 247, 0.45), rgba(253, 251, 247, 0.45)), 
+                        url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&q=80&w=2000') center/cover;
         }
         .hero-content h1 { font-size: clamp(45px, 10vw, 85px); line-height: 1.1; margin-bottom: 25px; }
         .hero-content p { font-size: 14px; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 40px; opacity: 0.8; }
@@ -73,8 +74,9 @@
         .btn-gold:hover { background: var(--graphite); border-color: var(--graphite); color: white; }
 
         /* О бренде */
-        .about-section { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; padding: 150px 0; }
-        .about-img { height: 700px; background: url('https://images.unsplash.com/photo-1600607687940-47a0f9259d4b?auto=format&fit=crop&q=80&w=1000') center/cover; border-radius: 400px 400px 0 0; }
+        .about-section { display: grid; grid-template-columns: 1fr; gap: 0; align-items: center; justify-items: center; padding: 20px 0 120px; text-align: center; }
+        .about-img { display: none; }
+        .about-text { text-align: center; max-width: 860px; margin: 0 auto; }
         .about-text h2 { font-size: 48px; margin-bottom: 35px; line-height: 1.2; }
         .about-text p { font-size: 17px; color: #666; margin-bottom: 25px; font-weight: 300; }
 
@@ -104,6 +106,47 @@
         .cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1500; display: none; }
         .cart-overlay.active { display: block; }
 
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--beige);
+        }
+        .cart-item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+        .cart-item img {
+            width: 56px;
+            height: 56px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+            background: var(--beige);
+        }
+        .cart-item-name {
+            font-size: 13px;
+            line-height: 1.35;
+        }
+        .cart-item-right {
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: var(--gold);
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 1;
+        }
+
         /* Тост уведомление */
         #toast {
             position: fixed; bottom: 40px; right: 40px; background: var(--graphite); color: white;
@@ -127,7 +170,8 @@
         /* Footer */
         footer { background: var(--graphite); color: #999; padding: 100px 0 50px; font-size: 13px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 80px; }
-        .footer-logo { font-size: 40px; color: white; margin-bottom: 30px; letter-spacing: 5px; }
+        .footer-logo { margin-bottom: 30px; }
+        .footer-logo img { height: 144px; width: auto; display: block; }
         footer h5 { color: white; font-family: 'Montserrat'; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
 
         @media (max-width: 1024px) {
@@ -166,7 +210,6 @@
 
     <nav>
         <div class="container nav-content">
-            <a href="#" class="logo">ZN</a>
             <div class="nav-links">
                 <a href="#about">Философия</a>
                 <a href="#catalog">Коллекция</a>
@@ -185,16 +228,14 @@
 
     <section class="hero">
         <div class="hero-content reveal">
-            <p>Laboratory of Pure Aesthetics</p>
-            <h1>ZN: Красота в<br>каждой детали</h1>
+            <h1>Красота в<br>каждой детали</h1>
             <a href="#catalog" class="btn">Исследовать коллекцию</a>
         </div>
     </section>
 
     <section id="about" class="container">
         <div class="about-section">
-            <div class="about-img reveal"></div>
-            <div class="about-text reveal">
+            <div class="about-text">
                 <h2>Мы создаем не уход,<br>а ритуал самопознания</h2>
                 <p>ZN — это манифест осознанного отношения к себе. В нашей собственной лаборатории мы отказались от шаблонных решений в пользу формул, которые работают на клеточном уровне.</p>
                 <p>Каждый флакон — это результат синергии редких природных экстрактов и инновационных пептидных комплексов. Мы верим, что волосы заслуживают того же внимания, что и кожа лица.</p>
@@ -208,31 +249,15 @@
         <div class="catalog-grid">
             <div class="product-card reveal">
                 <span class="product-tag">Увлажнение</span>
-                <img src="https://images.unsplash.com/photo-1585232356846-530232c3f13e?auto=format&fit=crop&q=80&w=500" alt="ZN">
+                <img src="ChatGPT Image 15 мар. 2026 г., 20_17_57.png" alt="Шампунь Hydration">
                 <h3>Шампунь Hydration</h3>
                 <p class="product-meta">Объем: 250 мл | Интенсивный блеск</p>
                 <div class="product-price">2 400 ₽</div>
                 <button class="btn btn-buy" data-name="Шампунь Hydration" data-price="2400">В корзину</button>
             </div>
             <div class="product-card reveal">
-                <span class="product-tag">Восстановление</span>
-                <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&q=80&w=500" alt="ZN">
-                <h3>Шампунь Repair</h3>
-                <p class="product-meta">Объем: 250 мл | Реконструкция</p>
-                <div class="product-price">2 600 ₽</div>
-                <button class="btn btn-buy" data-name="Шампунь Repair" data-price="2600">В корзину</button>
-            </div>
-            <div class="product-card reveal">
-                <span class="product-tag">Объем</span>
-                <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&q=80&w=500" alt="ZN">
-                <h3>Шампунь Volume</h3>
-                <p class="product-meta">Объем: 250 мл | Плотность</p>
-                <div class="product-price">2 300 ₽</div>
-                <button class="btn btn-buy" data-name="Шампунь Volume" data-price="2300">В корзину</button>
-            </div>
-            <div class="product-card reveal">
                 <span class="product-tag">SOS-Уход</span>
-                <img src="https://images.unsplash.com/photo-1626784215021-2e39ccf971cd?auto=format&fit=crop&q=80&w=500" alt="ZN">
+                <img src="ChatGPT Image 15 мар. 2026 г., 20_20_43.png" alt="Маска Intense">
                 <h3>Маска Intense</h3>
                 <p class="product-meta">Объем: 200 мл | Глубокое питание</p>
                 <div class="product-price">3 100 ₽</div>
@@ -240,19 +265,27 @@
             </div>
             <div class="product-card reveal">
                 <span class="product-tag">Уход</span>
-                <img src="https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&q=80&w=500" alt="ZN">
+                <img src="ChatGPT Image 15 мар. 2026 г., 20_20_08.png" alt="Бальзам Hydration">
                 <h3>Бальзам Hydration</h3>
                 <p class="product-meta">Объем: 200 мл | Легкое расчесывание</p>
                 <div class="product-price">2 100 ₽</div>
                 <button class="btn btn-buy" data-name="Бальзам Hydration" data-price="2100">В корзину</button>
             </div>
             <div class="product-card reveal">
-                <span class="product-tag">Защита</span>
-                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=500" alt="ZN">
-                <h3>Бальзам Repair</h3>
-                <p class="product-meta">Объем: 200 мл | Барьерная защита</p>
-                <div class="product-price">2 200 ₽</div>
-                <button class="btn btn-buy" data-name="Бальзам Repair" data-price="2200">В корзину</button>
+                <span class="product-tag">Набор</span>
+                <img src="ChatGPT Image 15 мар. 2026 г., 20_19_08.png" alt="Набор: Маска + Бальзам">
+                <h3>Набор: Маска + Бальзам</h3>
+                <p class="product-meta">Комплексный уход | Питание и мягкость</p>
+                <div class="product-price">4 900 ₽</div>
+                <button class="btn btn-buy" data-name="Набор: Маска + Бальзам" data-price="4900">В корзину</button>
+            </div>
+            <div class="product-card reveal">
+                <span class="product-tag">Премиум набор</span>
+                <img src="Zarif saç bakım ürünleri seti.png" alt="Набор: Маска + Шампунь + Бальзам">
+                <h3>Набор: Маска + Шампунь + Бальзам</h3>
+                <p class="product-meta">Полный ритуал ухода | 3 продукта</p>
+                <div class="product-price">6 900 ₽</div>
+                <button class="btn btn-buy" data-name="Набор: Маска + Шампунь + Бальзам" data-price="6900">В корзину</button>
             </div>
         </div>
     </section>
@@ -323,7 +356,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="logo footer-logo">ZN</div>
+                    <div class="logo footer-logo"><img src="Altın ZN logosu ve ışıklı iz.png" alt="ZN"></div>
                     <p>Искусство ухода, которое вы заслуживаете.</p>
                 </div>
                 <div>
@@ -392,7 +425,12 @@
             btn.onclick = () => {
                 const name = btn.dataset.name;
                 const price = parseInt(btn.dataset.price);
-                cart.push({name, price});
+                const productCard = btn.closest('.product-card');
+                const productImage = productCard?.querySelector('img');
+                const image = productImage?.src || '';
+                const imageAlt = productImage?.alt || name;
+
+                cart.push({name, price, image, imageAlt});
                 updateCart();
                 
                 toast.classList.add('show');
@@ -408,9 +446,12 @@
                 return;
             }
             cartItems.innerHTML = cart.map((item, idx) => `
-                <div style="display:flex; justify-content: space-between; margin-bottom: 20px; font-size: 14px;">
-                    <span>${item.name}</span>
-                    <span>${item.price} ₽ <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:var(--gold); margin-left:10px; cursor:pointer;">&times;</button></span>
+                <div class="cart-item">
+                    <div class="cart-item-left">
+                        <img src="${item.image}" alt="${item.imageAlt}">
+                        <span class="cart-item-name">${item.name}</span>
+                    </div>
+                    <span class="cart-item-right">${item.price} ₽ <button class="cart-item-remove" onclick="removeFromCart(${idx})">&times;</button></span>
                 </div>
             `).join('');
             totalSum.innerText = cart.reduce((sum, item) => sum + item.price, 0) + ' ₽';
